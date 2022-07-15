@@ -1,5 +1,13 @@
 # Tracknet-ForPytorch
 
+## 前準備
+
+csvのデータを作ります
+
+```bash
+python makefile.py
+```
+
 ## 使い方
 
 ### インストール
