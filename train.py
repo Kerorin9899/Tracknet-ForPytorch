@@ -78,7 +78,6 @@ load_weights = args.load_weights
 step_per_epochs = args.step_per_epochs
 opt = args.Optim_Param
 train_mode = args.Train_Mode
-TestFlag = args.TestMode
 withtqdm = args.Withtqdm
 
 n_classes = 256
