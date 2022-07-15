@@ -174,10 +174,7 @@ def criterion(input, target):
 
 Net.to(device)
 
-if Method == "Tracknet":
-    summary(Net, (9, input_height, input_width))
-elif Method == "Pre150" or Method == "Pre150Black":
-    summary(Net, (7, input_height, input_width))
+summary(Net, (9, input_height, input_width))
 
 sys.stdout.flush()
 
