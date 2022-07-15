@@ -51,7 +51,6 @@ input_width =  args.input_width
 input_height = args.input_height
 output_width =  args.output_width
 output_height = args.output_height
-Variance = args.Variance
 withtqdm = args.Withtqdm
 IsPeak = args.Ispeak
 
