@@ -61,7 +61,7 @@ for clip in range(14,22):
 
     #write all of images path and distance
     for i in range(2,len(images)-1): 
-        allimages.append([images[i+1],images[i],images[i-1],annotations[i]])
+        allimages.append([images[i],images[i-1],images[i-2],annotations[i]])
 
         if visibility[i] == "0":
             continue
