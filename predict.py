@@ -56,9 +56,6 @@ IsPeak = args.Ispeak
 
 output_path = "Result/" + output_path + "/Clip"
 
-from Model import TrackNet_four
-from GetImage import getimage
-
 def getInputFirst(path, width , height):
     try:
         img = cv2.imread(path, 1)
