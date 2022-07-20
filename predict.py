@@ -92,7 +92,6 @@ Net.load_state_dict(torch.load(save_weights_path))
 sigmoid = nn.Sigmoid()
 
 for clip in range(14,22):
-    PastBall.clear()
     
     images = glob.glob(images_path + str(clip) + "/*.jpg")
     images.sort()
@@ -122,10 +121,13 @@ for clip in range(14,22):
                 X = trans(X)
                 X = X.unsqueeze(0)
                 X = X.cuda()
-                
+
                 pr = Net(X)
-                pr = sigmoid(pr)
-                pr = pr * 255
+
+                # FocalLossの場合はこっちを使う
+                # pr = Net(X)
+                # pr = sigmoid(pr)
+                # pr = pr * 255
 
                 pr = pr.to('cpu').detach().numpy().copy()
 
@@ -149,10 +151,13 @@ for clip in range(14,22):
             X = trans(X)
             X = X.unsqueeze(0)
             X = X.cuda()
-            
+
             pr = Net(X)
-            pr = sigmoid(pr)
-            pr = pr * 255
+
+            # FocalLossの場合はこっちを使う
+            # pr = Net(X)
+            # pr = sigmoid(pr)
+            # pr = pr * 255
 
             pr = pr.to('cpu').detach().numpy().copy()
 
