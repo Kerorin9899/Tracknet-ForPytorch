@@ -24,10 +24,10 @@ pip install torchsummary
 
 学習
 ```bash
-python train.py -trainname "csv/tracknet.csv" -path "tracknet" -batch 2 -e 500 -Withtqdm True
+python train.py -trainname "csv/tracknet.csv" -path "tracknet" -batch 2 -e 500 -tqdm True
 ```
 
 予測
 ```bash
-python predict.py -weights "weights/tracknet.pth" -output "Tracknet" -Withtqdm True
+python predict.py -weights "weights/tracknet.pth" -output "Tracknet" -tqdm True
 ```
