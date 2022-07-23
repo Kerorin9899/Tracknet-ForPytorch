@@ -131,10 +131,24 @@ for clip in range(14,22):
 
                 pr = pr.to('cpu').detach().numpy().copy()
 
-                pr = pr.reshape((output_height, output_width))
-                pr = pr.astype(np.uint8)
+                #Focallossの場合
+                # pr = pr.reshape((output_height, output_width))
+                # pr = pr.astype(np.uint8)
 
-                out_img = cv2.resize(pr, (1280, 720))
+
+                pr = pr.reshape((output_height, output_width, n_classes)).argmax(axis = 2)
+
+                output_img = np.zeros((output_height, output_width, 3))
+
+                for c in range(n_classes):
+                    output_img[:,:,0] += ((pr[:,: ] == c)*(colors[c][0])).astype('uint8')
+                    output_img[:,:,1] += ((pr[:,: ] == c)*(colors[c][1])).astype('uint8')
+                    output_img[:,:,2] += ((pr[:,: ] == c)*(colors[c][2])).astype('uint8')
+
+                #Focallossの場合
+                #out_img = cv2.resize(pr, (1280, 720))
+
+                out_img = cv2.resize(output_img, (1280, 720))
 
                 cv2.imwrite(output_name, out_img)
 
@@ -161,10 +175,24 @@ for clip in range(14,22):
 
             pr = pr.to('cpu').detach().numpy().copy()
 
-            pr = pr.reshape((output_height, output_width))
-            pr = pr.astype(np.uint8)
+            #Focallossの場合
+            # pr = pr.reshape((output_height, output_width))
+            # pr = pr.astype(np.uint8)
 
-            out_img = cv2.resize(pr, (1280, 720))
+
+            pr = pr.reshape((output_height, output_width, n_classes)).argmax(axis = 2)
+
+            output_img = np.zeros((output_height, output_width, 3))
+
+            for c in range(n_classes):
+                output_img[:,:,0] += ((pr[:,: ] == c)*(colors[c][0])).astype('uint8')
+                output_img[:,:,1] += ((pr[:,: ] == c)*(colors[c][1])).astype('uint8')
+                output_img[:,:,2] += ((pr[:,: ] == c)*(colors[c][2])).astype('uint8')
+
+            #Focallossの場合
+            #out_img = cv2.resize(pr, (1280, 720))
+            
+            out_img = cv2.resize(output_img, (1280, 720))
 
             cv2.imwrite(output_name, out_img)
 
